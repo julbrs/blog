@@ -11,24 +11,23 @@ tags:
 
 ## Ingrédients
 
-1 gros oignon jaune haché fin
-3 gousses d’ail émincées
-gingembre frais râpé – environ 3 cm
-épices
-2 c. à thé de curcuma
-1 c .à table de cari
-2 c. à thé de cumin moulu
-1 c. à thé de sambal oelek
-1 c. à thé de sel
-poivre au goût
-400 g de lentilles corail préalablement rincées
-1 boîte de tomates en dés (540 ml)
-500 ml de bouillon de légumes
-1 boîte de lait de coco (400 ml) (voir préparation conventionnelle) ou
-lait de coco en poudre (voir préparation pour déshydratation)
-coriandre fraiche au goût
+- 1 gros oignon jaune haché fin
+- 3 gousses d’ail émincées
+- gingembre frais râpé – environ 3 cm
+- épices
+  - 2 c. à thé de curcuma
+  - 1 c .à table de cari
+  - 2 c. à thé de cumin moulu
+  - 1 c. à thé de sambal oelek
+  - 1 c. à thé de sel
+  - poivre au goût
+- 400 g de lentilles corail préalablement rincées
+- 1 boîte de tomates en dés (540 ml)
+- 500 ml de bouillon de légumes
+- 1 boîte de lait de coco (400 ml) (voir préparation conventionnelle) ou lait de coco en poudre (voir préparation pour déshydratation)
+- coriandre fraiche au goût
 
-Préparation conventionnelle
+## Préparation conventionnelle
 
 Faire revenir l’oignon quelques minutes jusqu’à ce qu’il devienne transparent.
 Ajouter l’ail, le gingembre et les épices et poursuivre la cuisson 2 minutes.
@@ -36,7 +35,7 @@ Ajouter les lentilles, le bouillon de légumes et les tomates en dés et poursui
 Ajouter la coriandre fraîche
 Ajouter le lait de coco en cours de cuisson lorsque la préparation devient trop épaisse. Omettre cette étape si vous préparez le dahl pour la déshydratation.
 
-Préparation pour déshydratation
+## Préparation pour déshydratation
 
 Suivre les 4 premières étapes de la préparation conventionnelle.
 Diviser le dahl cuit en portions de 350 g (ajuster selon votre appétit)
@@ -46,16 +45,16 @@ Transférer dans des sacs de conservation.
 Ajouter 2 c. à table de lait de coco en poudre
 Inscrire sur le sac la quantité d’eau à ajouter.
 
-Option pour longue randonnée
+## Option pour longue randonnée
 
 Pour agrémenter le dahl, on peut ajouter du riz minute au sachet de dahl déshydraté: 40 g de riz par portion. Prévoir d’ajouter 80 ml d’eau à la quantité requise pour le dahl.
 
-En randonnée:
+## En randonnée:
 
 Faire bouillir la quantité d’eau nécessaire à la réhydratation (voir plus haut) dans une casserole.
 Ajouter le dahl déshydraté.
 Laisser reposer environ 20 minutes, dégustez (le temps de réhydratation peut varier).
 
-Rendement
+## Rendement
 
 Prévoir des portions individuelles de 350 g (avant déshydratation) ou selon votre appétit.
