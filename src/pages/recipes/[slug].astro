@@ -20,9 +20,9 @@ const { Content } = await render(Astro.props);
 ---
 
 <Layout title={title} description={description}>
-  <article class="container mx-auto px-4 py-8">
+  <article class="container mx-auto px-2 sm:px-4 py-4 sm:py-8">
     <div
-      class="max-w-4xl mx-auto bg-gradient-to-br from-yellow-100 via-pink-100 to-purple-100 rounded-3xl overflow-hidden shadow-xl border-2 border-purple-300"
+      class="max-w-4xl mx-auto bg-gradient-to-br from-yellow-100 via-pink-100 to-purple-100 sm:rounded-3xl overflow-hidden sm:shadow-xl sm:border-2 sm:border-purple-300"
     >
       <div class="relative">
         {
@@ -50,7 +50,7 @@ const { Content } = await render(Astro.props);
         </div>
       </div>
 
-      <div class="p-8">
+      <div class="p-4 sm:p-8">
         {
           tags && (
             <div class="flex flex-wrap gap-2 mb-6">
@@ -63,7 +63,7 @@ const { Content } = await render(Astro.props);
           )
         }
 
-        <div class="prose-lg mx-auto bg-white/70 p-6 rounded-xl shadow-inner">
+        <div class="prose-lg mx-auto bg-white/70 p-4 sm:p-6 sm:rounded-xl sm:shadow-inner">
           <h1 class="text-4xl font-bold text-emerald-900 my-2 font-['Montserrat']">{title}</h1>
           <p class="text-xl text-purple-700 italic font-medium mb-6">{description}</p>
           <div class="date text-sm text-gray-600 mb-4">

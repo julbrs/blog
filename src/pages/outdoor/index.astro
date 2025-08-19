@@ -28,7 +28,7 @@ const posts = (await getCollection("outdoor")).sort(
           >
             <a
               href={`/outdoor/${post.id}/`}
-              class={`flex ${index === 0 ? "md:flex-row" : "flex-col"} h-full w-full`}
+              class={`flex ${index === 0 ? "flex-col md:flex-row" : "flex-col"} h-full w-full`}
             >
               <div class={`overflow-hidden ${index === 0 ? "md:w-3/5 md:h-full" : "aspect-video"}`}>
                 <Image
