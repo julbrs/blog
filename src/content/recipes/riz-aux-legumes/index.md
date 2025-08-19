@@ -37,7 +37,3 @@ tags:
 ## Variantes
 
 Vous pourriez aussi ajouter une protéine à la recette comme du poulet, du tofu ou des pois chiches selon vos goûts.
-
----
-
-Voilà! Maintenant,

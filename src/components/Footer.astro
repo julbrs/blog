@@ -1,0 +1,64 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <div class="footer-content">
+    <p>&copy; {currentYear} Julien Bras</p>
+    <div class="social-links">
+      <a href="https://github.com/julbrs" target="_blank" rel="noopener noreferrer"> GitHub </a>
+      <a href="https://bsky.app/profile/sidoine.org" target="_blank" rel="noopener noreferrer">
+        Bluesky
+      </a>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    margin-top: auto;
+    padding: 2rem 0;
+    border-top: 1px solid var(--color-border, #e5e7eb);
+    background: var(--color-background, #ffffff);
+  }
+
+  .footer-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .footer-content p {
+    margin: 0;
+    color: var(--color-text-secondary, #6b7280);
+    font-size: 0.9rem;
+  }
+
+  .social-links {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  .social-links a {
+    color: var(--color-text-secondary, #6b7280);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.2s ease;
+  }
+
+  .social-links a:hover {
+    color: var(--color-text-primary, #111827);
+  }
+
+  @media (max-width: 640px) {
+    .footer-content {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+</style>
