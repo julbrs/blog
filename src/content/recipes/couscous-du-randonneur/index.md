@@ -43,4 +43,4 @@ C'est Françoise qui a créé cette délicieuse recette. Cette recette ne néces
 
 **Rendement:** 2 portions
 
-[couscous](index.md)
+![couscous](couscous.jpeg)
