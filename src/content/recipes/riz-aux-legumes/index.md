@@ -3,10 +3,9 @@ title: "Riz aux légumes"
 description: "Une idée simple au riz"
 pubDate: "Jul 02 2025"
 source: https://fillesdunord.ca/2020/06/16/deshydrater-sa-nourriture-pour-la-randonnee/
-# heroImage: "./champignon-1.jpeg"
+heroImage: "./photo.jpg"
 tags:
   - souper
-  - desydrateur
 ---
 
 ## Ingrédients
