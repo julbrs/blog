@@ -9,7 +9,7 @@ description: Une gang motivée pour une première expérience de camping d'hiver
 heroImage: ./tentes.jpeg
 ---
 
-C'est la semaine de relâche scolaire de mars, et la température remonte un peu (autour de -2 degrés celsius au plus bas de la nuit). J'avais proposé à mes enfants de faire l'expérience du camping d'hiver, et ils étaient tous partants! Marion a pu se joindre à l'équipe grâce à un congé, et on a décidé de suivre un peu le plan de l'initiation au camping d'hiver que j'ai pu faire [ici](../2025-02-camping-hiver) et [ici](../2025-03-camping-hiver/index.md) ; donc simplement une nuit sur le site du camping du 10ème rang du mardi soir au mercredi avec un feu de camp et un bon souper / déjeuner!
+C'est la semaine de relâche scolaire de mars, et la température remonte un peu (autour de -2 degrés celsius au plus bas de la nuit). J'avais proposé à mes enfants de faire l'expérience du camping d'hiver, et ils étaient tous partants! Marion a pu se joindre à l'équipe grâce à un congé, et on a décidé de suivre un peu le plan de l'initiation au camping d'hiver que j'ai pu faire [ici](../2025-02-camping-hiver) et [ici](../2026-02-camping-hiver) ; donc simplement une nuit sur le site du camping du 10ème rang du mardi soir au mercredi avec un feu de camp et un bon souper / déjeuner!
 
 ![départ de l'auto](depart.jpg)
 
