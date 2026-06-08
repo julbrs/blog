@@ -9,7 +9,7 @@ description: Une aventure de fastpacking sur le Sentier National de la Mauricie,
 heroImage: ./AAAC94B7-1ECE-4346-90CF-10A3AEF5DF37.jpeg
 ---
 
-La dernière fin de semaine de mai, c'est la date de la "classique trotteux", une sortie de course à pied le long des Sentiers de l'Estrie organisée par Hugo, Nadine et Nadine. J'ai eu la chance de participer à l'édition 2025, mais rien n'était prévu pour cette année. Après discussion avec les chums de course à pied, on a décidé d'explorer le fastpacking, et Hugo a proposé un ambitieux tracé le long du sentier national de la Mauricie, là où a passé une fin de semaine l'an passé en famille ([ici](../2025-10-sentier-national-mauricie)).
+La dernière fin de semaine de mai, c'est la date de la "classique Trotteux", une sortie de course à pied le long des Sentiers de l'Estrie organisée par Hugo, Nadine et Nadine. J'ai eu la chance de participer à l'édition 2025, mais rien n'était prévu pour cette année. Après discussion avec les chums de course à pied, on a décidé d'explorer le fastpacking, et Hugo a proposé un ambitieux tracé le long du sentier national de la Mauricie, là où j'ai passé une fin de semaine l'an passé en famille ([ici](../2025-10-sentier-national-mauricie)).
 
 ## Le fastpacking, c'est quoi?
 
@@ -44,7 +44,7 @@ On monte un plan de secours (merci Catherine pour l'inspiration!) au cas où on 
 
 ## Vendredi soir
 
-On arrive assez tard sur notre spot de dodo pour la nuit, avec 2 autos. C'est une soirée très pluvieuse, on doit normalement avoir du beau temps le samedi, donc est un peu rassurés!
+On arrive assez tard sur notre spot de dodo pour la nuit, avec 2 autos. C'est une soirée très pluvieuse, on doit normalement avoir du beau temps le samedi, donc on est un peu rassurés!
 
 ## Samedi
 
@@ -102,7 +102,7 @@ Petit message via le InReach pour prévenir notre "ange-gardien" qu'on est bien 
 ![fermeture des sacs](202D2A4F-AEA8-49DF-BB44-BF76A1819E88_1_201_a.jpeg)
 _fermeture des sacs avant de repartir (Julien)_
 
-Levé vers 6h30 le dimanche, quelques gouttes sont tombés ce matin. Une nuit pas pire pour tout le monde, on semble avoir récupéré un peu d'énergie. On met un peu de carburant dans la machine pour la journée, on plie notre stock et on est de nouveau sur le sentier avant 8h00! Toujours aucune problématique pour l'eau, c'est disponible en abondance partout. Des cours d'eau sont là tous les 30mn pour nous permettre de nous ravitailler c'est magique. Après avoir passé la belle cascade, on arrive sur le pont flottant qui est le fun à passer! On a quelques pas technique à effectuer avant de finer le tronçon Rolland-Leclerc et de s'engager sur le nouveau.
+Levé vers 6h30 le dimanche, quelques gouttes sont tombés ce matin. Une nuit pas pire pour tout le monde, on semble avoir récupéré un peu d'énergie. On met un peu de carburant dans la machine pour la journée, on plie notre stock et on est de nouveau sur le sentier avant 8h00! Toujours aucune problématique pour l'eau, c'est disponible en abondance partout. Des cours d'eau sont là tous les 30mn pour nous permettre de nous ravitailler c'est magique. Après avoir passé la belle cascade, on arrive sur le pont flottant qui est le fun à passer! On a quelques pas technique à effectuer avant de finir le tronçon Rolland-Leclerc et de s'engager sur le nouveau.
 
 ### Tronçon Chute-du-Diable
 
