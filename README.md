@@ -1,48 +1,99 @@
-# Astro Starter Kit: Basics
+# Sidoine.org
 
-```sh
-pnpm create astro@latest -- --template basics
+Personal Astro site for blog posts, outdoor adventure journals, and outdoor recipes.
+
+## Stack
+
+- [Astro 5](https://astro.build/) static site
+- Tailwind CSS v4 via `@tailwindcss/vite`
+- Astro Content Collections (`blog`, `outdoor`, `recipe`)
+- Markdown callout support with `remark-github-blockquote-alert`
+
+## Quick start
+
+Requirements:
+
+- Node.js 20+
+- pnpm
+
+Install dependencies:
+
+```bash
+pnpm install
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+Run locally:
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+```bash
+pnpm dev
+```
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+Build production output:
 
-## 🚀 Project Structure
+```bash
+pnpm build
+```
 
-Inside of your Astro project, you'll see the following folders and files:
+Preview the build:
+
+```bash
+pnpm preview
+```
+
+Run Astro/content/type checks:
+
+```bash
+pnpm astro check
+```
+
+## Content model and routes
+
+Collections are defined in `src/content.config.ts`:
+
+- `blog`: markdown/mdx entries under `src/content/blog`
+- `outdoor`: markdown/mdx entries under `src/content/outdoor`
+- `recipe`: markdown/mdx entries under `src/content/recipes`
+
+Routing:
+
+- Blog posts use frontmatter `postSlug` and render at `/${postSlug}/` (`src/pages/[slug].astro`)
+- Outdoor entries use `post.id` and render at `/outdoor/${post.id}/`
+- Recipe entries use `post.id` and render at `/recipes/${post.id}/`
+
+If you change slug logic, update both route pages and list pages.
+
+## Project structure
 
 ```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
+src/
+  components/      Shared UI components
+  content/         Markdown/MDX content and media assets
+  layouts/         Base and section layouts
+  pages/           Astro page routes
+  styles/          Global stylesheet (`global.css`)
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+Layout composition:
 
-## 🧞 Commands
+- `LayoutBase.astro`: HTML shell, global CSS import, production analytics snippet
+- `Layout.astro`: wraps pages with header/footer and imports alert styles
+- Page files: render collection content and section-specific UI
 
-All commands are run from the root of the project, from a terminal:
+## Styling notes
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `pnpm install`             | Installs dependencies                            |
-| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm build`           | Build your production site to `./dist/`          |
-| `pnpm preview`         | Preview your build locally, before deploying     |
-| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro -- --help` | Get help using the Astro CLI                     |
+- Global styles are loaded from `src/styles/global.css`
+- Tailwind is configured in `astro.config.mjs` with the Vite plugin (no `tailwind.config.*`)
+- Path alias `@/*` maps to `src/*` in `tsconfig.json`
 
-## 👀 Want to learn more?
+## Deployment
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+GitHub Pages deploy is configured in `.github/workflows/deploy.yml`:
+
+- Trigger: push to `main`
+- Build/deploy action: `withastro/action@v3`
+- Package manager: pnpm
+
+## Notes
+
+- GoatCounter analytics is injected only in production mode (`LayoutBase.astro`).
+- Markdown callouts like `> [!NOTE]` are enabled through the remark plugin and alert CSS import.
