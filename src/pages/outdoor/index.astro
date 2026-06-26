@@ -5,9 +5,9 @@ import Layout from "@/layouts/Layout.astro";
 import FormattedDate from "@/components/FormattedDate.astro";
 
 import defaultImage from "@/assets/default-recipe.png";
-const posts = (await getCollection("outdoor")).sort(
-  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
-);
+const posts = (await getCollection("outdoor"))
+  .filter((post) => post.data.listed !== false)
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 ---
 
 <Layout

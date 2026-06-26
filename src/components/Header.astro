@@ -6,8 +6,14 @@ const currentPath = Astro.url.pathname;
 const navItems = [
   { name: "Blog", path: "/blog/" },
   { name: "Outdoor", path: "/outdoor/" },
+  { name: "Wishlist", path: "/outdoor/wishlist-outdoor/" },
   { name: "Recipes", path: "/recipes/" },
 ];
+
+const activeItemPath =
+  navItems
+    .filter((item) => currentPath.startsWith(item.path))
+    .sort((a, b) => b.path.length - a.path.length)[0]?.path ?? "";
 ---
 
 <header class="bg-white shadow-sm w-full">
@@ -29,7 +35,7 @@ const navItems = [
       <nav class="flex items-center space-x-1 sm:space-x-4">
         {
           navItems.map((item) => {
-            const isActive = currentPath.startsWith(item.path);
+            const isActive = item.path === activeItemPath;
             return (
               <a
                 href={item.path}
