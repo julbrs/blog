@@ -1,0 +1,220 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { parse } from "yaml";
+import wishlistYamlRaw from "../../data/wishlist-outdoor.yaml?raw";
+
+type WishlistStatus = "a-faire" | "repere" | "planifie" | "fait";
+type WishlistType = "hiking" | "trail-running";
+
+interface WishlistItem {
+  id: string;
+  title: string;
+  region: string;
+  status: WishlistStatus;
+  type: WishlistType;
+  distanceKm?: number;
+  elevationGainM?: number;
+  link?: string;
+  linkLabel?: string;
+  why?: string;
+}
+
+const statusOrder: WishlistStatus[] = ["a-faire", "repere", "planifie", "fait"];
+const typeOrder: WishlistType[] = ["hiking", "trail-running"];
+
+const statusLabelMap: Record<WishlistStatus, string> = {
+  "a-faire": "À faire",
+  repere: "Repéré",
+  planifie: "Planifié",
+  fait: "Fait",
+};
+
+const statusIconMap: Record<WishlistStatus, string> = {
+  "a-faire": "⏳",
+  repere: "🧭",
+  planifie: "📅",
+  fait: "✅",
+};
+
+const typeLabelMap: Record<WishlistType, string> = {
+  hiking: "Hiking",
+  "trail-running": "Trail running",
+};
+
+const parsed = parse(wishlistYamlRaw) as { items?: WishlistItem[] };
+const wishlistItems = parsed.items ?? [];
+const availableStatuses = statusOrder.filter((status) => wishlistItems.some((item) => item.status === status));
+const availableTypes = typeOrder.filter((type) => wishlistItems.some((item) => item.type === type));
+const availableRegions = [...new Set(wishlistItems.map((item) => item.region))].sort((a, b) =>
+  a.localeCompare(b, "fr")
+);
+---
+
+<Layout
+  title="Wish list outdoor : hiking et trail-running"
+  description="Liste d'objectifs rando et trail-running pour les prochaines saisons."
+>
+  <section class="p-6 max-w-7xl mx-auto">
+    <h1 class="mb-2 text-4xl md:text-5xl font-bold text-emerald-800">
+        Wish list outdoor : hiking et trail-running
+    </h1>
+    <p class="mb-6 text-lg italic text-emerald-700">
+        Liste d'objectifs rando et trail-running pour les prochaines saisons.
+    </p>
+    <hr class="my-8 h-0.5 border-none bg-emerald-200" />
+
+    <section>
+      <div class="sticky top-2 z-10 mb-5 rounded-xl border border-emerald-200 bg-stone-50/95 p-3 backdrop-blur-sm">
+        <div class="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4 sm:items-end">
+          <label class="flex flex-col gap-1 text-sm text-slate-700" for="wishlist-region-filter">
+            <span class="font-semibold text-emerald-900">Région</span>
+            <select
+              id="wishlist-region-filter"
+              class="rounded-lg border border-emerald-200 bg-white px-3 py-2 text-slate-800"
+            >
+              <option value="all">Toutes</option>
+              {availableRegions.map((region) => (
+                <option value={region}>{region}</option>
+              ))}
+            </select>
+          </label>
+
+            <label class="flex flex-col gap-1 text-sm text-slate-700" for="wishlist-status-filter">
+              <span class="font-semibold text-emerald-900">Statut</span>
+              <select
+                id="wishlist-status-filter"
+                class="rounded-lg border border-emerald-200 bg-white px-3 py-2 text-slate-800"
+              >
+                <option value="all">Tous</option>
+                {availableStatuses.map((status) => (
+                  <option value={status}>{statusIconMap[status]} {statusLabelMap[status]}</option>
+                ))}
+              </select>
+            </label>
+
+            <label class="flex flex-col gap-1 text-sm text-slate-700" for="wishlist-type-filter">
+              <span class="font-semibold text-emerald-900">Type</span>
+              <select
+                id="wishlist-type-filter"
+                class="rounded-lg border border-emerald-200 bg-white px-3 py-2 text-slate-800"
+              >
+                <option value="all">Tous</option>
+                {availableTypes.map((type) => (
+                  <option value={type}>{typeLabelMap[type]}</option>
+                ))}
+              </select>
+            </label>
+
+            <div class="flex items-center justify-between gap-3">
+              <p class="text-sm font-medium text-slate-700" id="wishlist-result-count">{wishlistItems.length} sortie(s)</p>
+              <button
+                id="wishlist-reset-filters"
+                type="button"
+                class="inline-flex items-center rounded-lg border border-emerald-300 bg-white px-3 py-2 text-xs font-semibold text-emerald-800 transition-colors hover:bg-emerald-50"
+              >
+                Réinitialiser
+              </button>
+            </div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="wishlist-grid">
+        {wishlistItems.map((item) => (
+          <article
+            class="bg-white rounded-lg border border-gray-200 p-4 shadow-md transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg"
+            data-wishlist-item
+            data-region={item.region}
+            data-status={item.status}
+            data-type={item.type}
+          >
+            <div class="mb-3 flex items-start justify-between gap-3">
+              <h2 class="text-xl font-semibold text-amber-900 leading-snug">{item.title}</h2>
+              <span class="inline-flex items-center gap-1 rounded-full bg-emerald-50 px-2.5 py-1 text-xs font-semibold text-emerald-800">
+                <span aria-hidden="true">{statusIconMap[item.status]}</span>
+                {statusLabelMap[item.status]}
+              </span>
+            </div>
+
+            <div class="mb-3 flex flex-wrap gap-2 text-sm">
+              <span class="rounded-full border border-sky-200 bg-sky-100 px-2.5 py-1 font-semibold text-sky-800">
+                {item.region}
+              </span>
+              <span class="rounded-full bg-slate-100 px-2.5 py-1 font-medium text-slate-700">
+                {typeLabelMap[item.type]}
+              </span>
+              {typeof item.distanceKm === "number" && (
+                <span class="rounded-full bg-emerald-100 px-2.5 py-1 font-medium text-emerald-800">
+                  {item.distanceKm} km
+                </span>
+              )}
+              {typeof item.elevationGainM === "number" && (
+                <span class="rounded-full bg-amber-100 px-2.5 py-1 font-medium text-amber-900">
+                  {item.elevationGainM.toLocaleString("fr-CA")} m D+
+                </span>
+              )}
+            </div>
+
+            {item.why && <p class="mb-3 text-sm text-slate-700">{item.why}</p>}
+
+            {item.link && (
+              <a
+                href={item.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-1 text-sm font-semibold text-emerald-700 underline decoration-emerald-400 underline-offset-4 hover:text-emerald-900"
+              >
+                {item.linkLabel || "Lien"}
+              </a>
+            )}
+          </article>
+        ))}
+      </div>
+
+      <p class="mt-4 hidden text-sm text-slate-600" id="wishlist-empty-state">Aucun résultat avec ces filtres.</p>
+
+      <script is:inline>
+        (() => {
+          const regionSelect = document.getElementById("wishlist-region-filter");
+          const statusSelect = document.getElementById("wishlist-status-filter");
+          const typeSelect = document.getElementById("wishlist-type-filter");
+          const cards = Array.from(document.querySelectorAll("[data-wishlist-item]"));
+          const resultCount = document.getElementById("wishlist-result-count");
+          const emptyState = document.getElementById("wishlist-empty-state");
+          const resetButton = document.getElementById("wishlist-reset-filters");
+
+          if (!regionSelect || !statusSelect || !typeSelect || cards.length === 0) return;
+
+          const applyFilters = () => {
+            const regionValue = regionSelect.value;
+            const statusValue = statusSelect.value;
+            const typeValue = typeSelect.value;
+            let visibleCount = 0;
+
+            cards.forEach((card) => {
+              const matchesRegion = regionValue === "all" || card.dataset.region === regionValue;
+              const matchesStatus = statusValue === "all" || card.dataset.status === statusValue;
+              const matchesType = typeValue === "all" || card.dataset.type === typeValue;
+              const visible = matchesRegion && matchesStatus && matchesType;
+              card.classList.toggle("hidden", !visible);
+              if (visible) visibleCount += 1;
+            });
+
+            if (resultCount) resultCount.textContent = `${visibleCount} sortie(s)`;
+            if (emptyState) emptyState.classList.toggle("hidden", visibleCount > 0);
+          };
+
+          regionSelect.addEventListener("change", applyFilters);
+          statusSelect.addEventListener("change", applyFilters);
+          typeSelect.addEventListener("change", applyFilters);
+          resetButton?.addEventListener("click", () => {
+            regionSelect.value = "all";
+            statusSelect.value = "all";
+            typeSelect.value = "all";
+            applyFilters();
+          });
+          applyFilters();
+        })();
+      </script>
+    </section>
+  </section>
+</Layout>

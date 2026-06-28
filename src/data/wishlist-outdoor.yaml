@@ -1,0 +1,36 @@
+items:
+  - id: lt-northern-terminus-eden-crossing
+    title: "LT: Northern Terminus to Eden Crossing"
+    region: Vermont
+    status: repere
+    type: trail-running
+    distanceKm: 46
+    elevationGainM: 3300
+    link: "https://www.strava.com/activities/15802900851"
+    linkLabel: "Guillaume Strava"
+    why: "Ce sont les 50 derniers kilomètres de la LT"
+
+  - id: pemi-loop
+    title: "Pemi Loop"
+    region: New Hampshire
+    status: a-faire
+    type: hiking
+    why: "Boucle mythique des White Mountains"
+
+  - id: ontario-la-cloche
+    title: "Ontario: La Cloche"
+    region: Ontario
+    status: a-faire
+    type: hiking
+    why: "Un grand classique de l'Ontario sauvage"
+
+  - id: nh-grafton-loop
+    title: "NH: Grafton Loop"
+    region: Maine
+    status: repere
+    type: trail-running
+    distanceKm: 53
+    elevationGainM: 3500
+    link: "https://caltopo.com/m/FSRP"
+    linkLabel: "CalTopo"
+    why: "C'est sur l'AT et c'est une boucle"
