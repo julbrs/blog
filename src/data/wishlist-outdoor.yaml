@@ -4,33 +4,98 @@ items:
     region: Vermont
     status: repere
     type: trail-running
+    trailShape: linear
     distanceKm: 46
     elevationGainM: 3300
     link: "https://www.strava.com/activities/15802900851"
-    linkLabel: "Guillaume Strava"
+    linkLabel: "Strava, Guillaume Fournier activity"
     why: "Ce sont les 50 derniers kilomètres de la LT"
 
   - id: pemi-loop
     title: "Pemi Loop"
     region: New Hampshire
     status: a-faire
+    trailShape: loop
+    distanceKm: 51
+    elevationGainM: 3200
+    link: https://caltopo.com/m/V0JC7
+    linkLabel: "CalTopo"
     type: hiking
     why: "Boucle mythique des White Mountains"
 
-  - id: ontario-la-cloche
-    title: "Ontario: La Cloche"
+  - id: la-cloche
+    title: "La Cloche"
     region: Ontario
     status: a-faire
+    trailShape: loop
+    distanceKm: 78
+    link: https://www.facebook.com/groups/2299157603728038/?multi_permalinks=3160487724261684&hoisted_section_header_type=recently_seen
+    linkLabel: "Facebook, Annick Myco post"
     type: hiking
     why: "Un grand classique de l'Ontario sauvage"
 
-  - id: nh-grafton-loop
-    title: "NH: Grafton Loop"
+  - id: grafton-loop
+    title: "Grafton Loop"
     region: Maine
     status: repere
     type: trail-running
+    trailShape: loop
     distanceKm: 53
     elevationGainM: 3500
     link: "https://caltopo.com/m/FSRP"
     linkLabel: "CalTopo"
     why: "C'est sur l'AT et c'est une boucle"
+
+  - id: sentier-du-fjord
+    title: "Sentier du Fjord"
+    region: Québec
+    status: a-faire
+    trailShape: linear
+    distanceKm: 42
+    type: hiking
+    why: "Traversée des falaises du Saguenay"
+
+  - id: traversee-des-monts-uapishka
+    title: "Traversée des Monts Uapishka"
+    region: Québec
+    status: a-faire
+    trailShape: linear
+    distanceKm: 45
+    type: hiking
+    why: "Expédition en Cote-Nord, dans les Monts Groulx"
+
+  - id: sentier-des-caps-de-charlevoix
+    title: "Sentier des Caps de Charlevoix"
+    region: Québec
+    status: a-faire
+    trailShape: linear
+    distanceKm: 51
+    type: hiking
+    why: "Vue sur le fleuve du haut des caps"
+
+  - id: sentier-national-en-matawinie
+    title: "Sentier National en Matawinie"
+    region: Québec
+    status: a-faire
+    trailShape: linear
+    distanceKm: 115
+    type: hiking
+    why: "Section du Sentier National au cœur de la Matawinie"
+
+  - id: boucle-des-hauts-sommets-de-saint-donat
+    title: "Boucle des Hauts Sommets de Saint-Donat"
+    region: Québec
+    status: a-faire
+    trailShape: loop
+    distanceKm: 78
+    type: hiking
+    why: "Enchainement de sommets dans Lanaudière"
+
+  - id: le-sia
+    title: "Le SIA"
+    region: Québec
+    status: a-faire
+    trailShape: linear
+    distanceKm: 650
+    type: hiking
+    why: "Le Sentier International des Appalaches au Québec"

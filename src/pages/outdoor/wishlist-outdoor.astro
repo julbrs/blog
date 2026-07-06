@@ -5,6 +5,7 @@ import wishlistYamlRaw from "../../data/wishlist-outdoor.yaml?raw";
 
 type WishlistStatus = "a-faire" | "repere" | "planifie" | "fait";
 type WishlistType = "hiking" | "trail-running";
+type WishlistTrailShape = "loop" | "linear" | "out-and-back" | "other";
 
 interface WishlistItem {
   id: string;
@@ -12,6 +13,7 @@ interface WishlistItem {
   region: string;
   status: WishlistStatus;
   type: WishlistType;
+  trailShape: WishlistTrailShape;
   distanceKm?: number;
   elevationGainM?: number;
   link?: string;
@@ -21,6 +23,7 @@ interface WishlistItem {
 
 const statusOrder: WishlistStatus[] = ["a-faire", "repere", "planifie", "fait"];
 const typeOrder: WishlistType[] = ["hiking", "trail-running"];
+const trailShapeOrder: WishlistTrailShape[] = ["loop", "linear", "out-and-back", "other"];
 
 const statusLabelMap: Record<WishlistStatus, string> = {
   "a-faire": "À faire",
@@ -41,10 +44,20 @@ const typeLabelMap: Record<WishlistType, string> = {
   "trail-running": "Trail running",
 };
 
+const trailShapeLabelMap: Record<WishlistTrailShape, string> = {
+  loop: "Boucle",
+  linear: "Linéaire",
+  "out-and-back": "Aller-retour",
+  other: "Autre",
+};
+
 const parsed = parse(wishlistYamlRaw) as { items?: WishlistItem[] };
 const wishlistItems = parsed.items ?? [];
 const availableStatuses = statusOrder.filter((status) => wishlistItems.some((item) => item.status === status));
 const availableTypes = typeOrder.filter((type) => wishlistItems.some((item) => item.type === type));
+const availableTrailShapes = trailShapeOrder.filter((shape) =>
+  wishlistItems.some((item) => item.trailShape === shape)
+);
 const availableRegions = [...new Set(wishlistItems.map((item) => item.region))].sort((a, b) =>
   a.localeCompare(b, "fr")
 );
@@ -65,7 +78,23 @@ const availableRegions = [...new Set(wishlistItems.map((item) => item.region))].
 
     <section>
       <div class="sticky top-2 z-10 mb-5 rounded-xl border border-emerald-200 bg-stone-50/95 p-3 backdrop-blur-sm">
-        <div class="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4 sm:items-end">
+        <div class="flex items-center justify-between gap-3">
+          <button
+            id="wishlist-filters-toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="wishlist-filters-panel"
+            class="inline-flex items-center rounded-lg border border-emerald-300 bg-white px-3 py-2 text-xs font-semibold text-emerald-800 transition-colors hover:bg-emerald-50 md:hidden"
+          >
+            Afficher les filtres
+          </button>
+          <p class="text-sm font-medium text-slate-700" id="wishlist-result-count">{wishlistItems.length} sortie(s)</p>
+        </div>
+
+        <div
+          id="wishlist-filters-panel"
+          class="hidden mt-3 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-5 sm:items-end md:mt-0 md:grid"
+        >
           <label class="flex flex-col gap-1 text-sm text-slate-700" for="wishlist-region-filter">
             <span class="font-semibold text-emerald-900">Région</span>
             <select
@@ -105,16 +134,28 @@ const availableRegions = [...new Set(wishlistItems.map((item) => item.region))].
               </select>
             </label>
 
-            <div class="flex items-center justify-between gap-3">
-              <p class="text-sm font-medium text-slate-700" id="wishlist-result-count">{wishlistItems.length} sortie(s)</p>
-              <button
-                id="wishlist-reset-filters"
-                type="button"
-                class="inline-flex items-center rounded-lg border border-emerald-300 bg-white px-3 py-2 text-xs font-semibold text-emerald-800 transition-colors hover:bg-emerald-50"
+            <label class="flex flex-col gap-1 text-sm text-slate-700" for="wishlist-trail-shape-filter">
+              <span class="font-semibold text-emerald-900">Parcours</span>
+              <select
+                id="wishlist-trail-shape-filter"
+                class="rounded-lg border border-emerald-200 bg-white px-3 py-2 text-slate-800"
               >
-                Réinitialiser
-              </button>
-            </div>
+                <option value="all">Tous</option>
+                {availableTrailShapes.map((shape) => (
+                  <option value={shape}>{trailShapeLabelMap[shape]}</option>
+                ))}
+              </select>
+            </label>
+
+          <div class="flex items-end">
+            <button
+              id="wishlist-reset-filters"
+              type="button"
+              class="inline-flex items-center rounded-lg border border-emerald-300 bg-white px-3 py-2 text-xs font-semibold text-emerald-800 transition-colors hover:bg-emerald-50"
+            >
+              Réinitialiser
+            </button>
+          </div>
         </div>
       </div>
 
@@ -126,6 +167,7 @@ const availableRegions = [...new Set(wishlistItems.map((item) => item.region))].
             data-region={item.region}
             data-status={item.status}
             data-type={item.type}
+            data-trail-shape={item.trailShape}
           >
             <div class="mb-3 flex items-start justify-between gap-3">
               <h2 class="text-xl font-semibold text-amber-900 leading-snug">{item.title}</h2>
@@ -141,6 +183,9 @@ const availableRegions = [...new Set(wishlistItems.map((item) => item.region))].
               </span>
               <span class="rounded-full bg-slate-100 px-2.5 py-1 font-medium text-slate-700">
                 {typeLabelMap[item.type]}
+              </span>
+              <span class="rounded-full bg-violet-100 px-2.5 py-1 font-medium text-violet-800">
+                {trailShapeLabelMap[item.trailShape]}
               </span>
               {typeof item.distanceKm === "number" && (
                 <span class="rounded-full bg-emerald-100 px-2.5 py-1 font-medium text-emerald-800">
@@ -177,24 +222,29 @@ const availableRegions = [...new Set(wishlistItems.map((item) => item.region))].
           const regionSelect = document.getElementById("wishlist-region-filter");
           const statusSelect = document.getElementById("wishlist-status-filter");
           const typeSelect = document.getElementById("wishlist-type-filter");
+          const trailShapeSelect = document.getElementById("wishlist-trail-shape-filter");
+          const filtersToggle = document.getElementById("wishlist-filters-toggle");
+          const filtersPanel = document.getElementById("wishlist-filters-panel");
           const cards = Array.from(document.querySelectorAll("[data-wishlist-item]"));
           const resultCount = document.getElementById("wishlist-result-count");
           const emptyState = document.getElementById("wishlist-empty-state");
           const resetButton = document.getElementById("wishlist-reset-filters");
 
-          if (!regionSelect || !statusSelect || !typeSelect || cards.length === 0) return;
+          if (!regionSelect || !statusSelect || !typeSelect || !trailShapeSelect || !filtersPanel || cards.length === 0) return;
 
           const applyFilters = () => {
             const regionValue = regionSelect.value;
             const statusValue = statusSelect.value;
             const typeValue = typeSelect.value;
+            const trailShapeValue = trailShapeSelect.value;
             let visibleCount = 0;
 
             cards.forEach((card) => {
               const matchesRegion = regionValue === "all" || card.dataset.region === regionValue;
               const matchesStatus = statusValue === "all" || card.dataset.status === statusValue;
               const matchesType = typeValue === "all" || card.dataset.type === typeValue;
-              const visible = matchesRegion && matchesStatus && matchesType;
+              const matchesTrailShape = trailShapeValue === "all" || card.dataset.trailShape === trailShapeValue;
+              const visible = matchesRegion && matchesStatus && matchesType && matchesTrailShape;
               card.classList.toggle("hidden", !visible);
               if (visible) visibleCount += 1;
             });
@@ -206,10 +256,17 @@ const availableRegions = [...new Set(wishlistItems.map((item) => item.region))].
           regionSelect.addEventListener("change", applyFilters);
           statusSelect.addEventListener("change", applyFilters);
           typeSelect.addEventListener("change", applyFilters);
+          trailShapeSelect.addEventListener("change", applyFilters);
+          filtersToggle?.addEventListener("click", () => {
+            const isHidden = filtersPanel.classList.toggle("hidden");
+            filtersToggle.textContent = isHidden ? "Afficher les filtres" : "Masquer les filtres";
+            filtersToggle.setAttribute("aria-expanded", String(!isHidden));
+          });
           resetButton?.addEventListener("click", () => {
             regionSelect.value = "all";
             statusSelect.value = "all";
             typeSelect.value = "all";
+            trailShapeSelect.value = "all";
             applyFilters();
           });
           applyFilters();
