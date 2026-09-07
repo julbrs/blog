@@ -1,4 +1,15 @@
 items:
+  - id: sunshine-coast-trail
+    title: "Sunshine Coast Trail"
+    region: Colombie-Britannique
+    status: repere
+    type: hiking
+    trailShape: linear
+    distanceKm: 180
+    link: "https://www.facebook.com/annik.myco.7/posts/pfbid037PpXEEs6UuCsh2CJTd4csq7oyS4EWHFzEdHmJdSASbTKZ54zmz8FKGL1xRAqmsX8l"
+    linkLabel: "Facebook, post d'Annik Myco"
+    why: "Traversée de Sarah Point à Saltery Bay, avec refuges et campings gratuits"
+
   - id: lt-northern-terminus-eden-crossing
     title: "LT: Northern Terminus to Eden Crossing"
     region: Vermont
